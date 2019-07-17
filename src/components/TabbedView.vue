@@ -13,7 +13,10 @@
     props: ['connection'],
     data() {
       return {
-        tables: [{ name: "users", columns: [{name: "first_name", data_type:"STRING"}]}, {name: "items", columns: [{name: "wizzbang", data_type:"INT(18)"}]}]
+        tables: [
+          { name: "users", columns: [{name: "first_name", dataType:"STRING"}]},
+          {name: "items", columns: [{name: "wizzbang", dataType:"INT(18)"}]}
+        ]
       }
     }
   }

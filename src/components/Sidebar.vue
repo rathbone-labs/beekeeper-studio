@@ -7,7 +7,9 @@
   >
         <v-text-field
         flat
-        solo-inverted
+        solo
+        prepend-inner-icon="search"
+        hide-details
         label="Search"
       ></v-text-field>
     <v-list dense subheader class="pt-0">
@@ -17,7 +19,6 @@
         v-for="item in items"
         :key="item.name"
         v-model="item.active"
-        :prepend-icon="item.icon"
         no-action
       >
         <template v-slot:activator>
@@ -31,14 +32,12 @@
         <v-list-tile
           v-for="subItem in item.columns"
           :key="subItem.name"
+          class="pl-2"
         >
           <v-list-tile-content>
-            <v-list-tile-title>{{ subItem.name }}</v-list-tile-title>
+            <v-list-tile-title>{{ subItem.name }} <span class="right">{{subItem.dataType}}</span></v-list-tile-title>
+            <v-list-tile-sub-title>{{ subItem.datType }}</v-list-tile-sub-title>
           </v-list-tile-content>
-
-          <v-list-tile-action>
-            <v-icon>{{ subItem.action }}</v-icon>
-          </v-list-tile-action>
         </v-list-tile>
       </v-list-group>
 
@@ -72,5 +71,9 @@ export default {
 
 
 <style>
+
+.v-list__group__items--no-action .v-list__tile {
+  padding-left: 20px;
+}
 
 </style>
